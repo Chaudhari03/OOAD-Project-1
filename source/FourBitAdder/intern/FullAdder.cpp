@@ -1,28 +1,24 @@
+// FullAdder.cpp
+
 #include "FullAdder.h"
 #include "LogicGates.h"
-
+#include "HalfAdder.h"
+OR or1(1);
 FullAdder::FullAdder() {
 }
 
-void FullAdder::setInput( const unsigned short int inputA, const unsigned short int inputB, const unsigned short int inputC) {
-    // Set input values for AND and XOR gates
-    AND(inputA);
-    XOR(inputA);
+void FullAdder::setInput(const unsigned short int inputA, const unsigned short int inputB, const unsigned short int inputC) {
+    half_adder1.setInput(inputA, inputB);
+    half_adder2.setInput(half_adder1.getSum(), inputC);
+    or1.set_in1(half_adder1.getCarryOut());
+    or1.set_in2(half_adder2.getCarryOut());
 }
 
-const unsigned short int FullAdder::getSum(const unsigned short int inputA,const unsigned short int inputB, const unsigned short int inputC) {
-    // Get the output Sum from XOR gate
-      const unsigned short int temp = XOR(inputA).update(inputB)
-    return XOR(temp).update(inputC)
-      
+const unsigned short int FullAdder::getSum() {
+    return half_adder2.getSum();
 }
-const unsigned short int FullAdder::getCarryOut(const unsigned short int inputA,const unsigned short int inputB, const unsigned short int inputC) {
-    // Get the output Sum from XOR gate
-     
-    const unsigned short int ab_AND = AND(inputA).update(inputB) 
-    const unsigned short int bc_AND = AND(inputB).update(inputC)
-    const unsigned short int ac_AND = AND(inputA).update(inputC)
-return OR(OR(ab_AND).update(bc_AND)).update(ac_AND)
 
-
+const unsigned short int FullAdder::getCarryOut() {
+    or1.update();
+    return or1.m_usiOut;
 }

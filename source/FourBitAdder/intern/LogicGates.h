@@ -22,7 +22,7 @@ public:
     AND(const unsigned short int);
     virtual ~AND();
 
-protected:
+public:
     std::string m_strID;
 
     virtual void update();
@@ -35,7 +35,7 @@ public:
     NAND(const unsigned short int);
     virtual ~NAND();
 
-protected:
+public:
     std::string m_strID;
 
     virtual void update();
@@ -45,10 +45,11 @@ protected:
 class OR: public AbstractGate
 {
 public:
+    OR();
     OR(const unsigned short int);
     virtual ~OR();
 
-protected:
+public:
     std::string m_strID;
 
     virtual void update();
@@ -57,16 +58,14 @@ protected:
 class XOR : public AbstractGate
 {
 public:
-    XOR();
-
+    XOR();    
     XOR(const unsigned short int);
-    virtual ~XOR();
-
-protected:
+public:
     std::string m_strID;
 
     virtual void update();
     virtual std::string repr();
+
 };
 
 #endif /* _LOGICGATES_H_ */

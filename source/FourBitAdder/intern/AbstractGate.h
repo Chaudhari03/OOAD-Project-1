@@ -37,7 +37,7 @@ public:
     void set_in1(const unsigned short int);
     void set_in2(const unsigned short int);
 
-protected:
+public:
     /**   Hungarian notation: http://web.mst.edu/~cpp/common/hungarian.html
      *    https://stackoverflow.com/questions/841075/best-c-code-formatter-beautifier
      *    http://astyle.sourceforge.net/astyle.html#_Quick_Start

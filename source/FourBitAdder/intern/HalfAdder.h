@@ -1,3 +1,5 @@
+// HalfAdder.h
+
 #ifndef HALFADDER_H
 #define HALFADDER_H
 
@@ -5,14 +7,14 @@
 
 class HalfAdder {
 private:
-    AND and_gate; // AND gate instance for calculating Sum
-    XOR xor_gate; // XOR gate instance for calculating Carry-out
+    XOR xor_gate;
+    AND and_gate;
 
 public:
-    HalfAdder(); // Constructor
-    void setInput(const unsigned short int inputA, const unsigned short int inputB); // Set input values
-    const unsigned short int getSum(const unsigned short int inputB); // Get the output Sum
-    const unsigned short int getCarryOut(const unsigned short int inputB); // Get the Carry-out
+    HalfAdder();
+    void setInput(const unsigned short int inputA, const unsigned short int inputB);
+    const unsigned short int getSum();
+    const unsigned short int getCarryOut();
 };
 
 #endif // HALFADDER_H
